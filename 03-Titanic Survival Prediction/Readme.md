@@ -1,4 +1,4 @@
-# 🚢 Titanic Survival Prediction — Machine Learning Classification
+# Titanic Survival Prediction - Machine Learning Classification
 
 A hands-on Machine Learning classification project based on the famous Titanic dataset. The project explores multiple classification algorithms to predict whether a passenger survived the Titanic disaster based on passenger and travel-related information.
 
