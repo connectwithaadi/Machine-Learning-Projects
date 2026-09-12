@@ -187,6 +187,32 @@ X_test_scaled = scaler.transform(X_test)
 
 The test dataset is transformed using the scaler fitted on the training data to avoid data leakage.
 
+## 🔄 Cross-Validation
+
+After comparing the models on the single train-test split, 5-fold cross-validation was also performed for the SVM and KNN models.
+
+### SVM — 5-Fold Cross-Validation
+
+```text
+Fold scores:
+[0.83146067, 0.82022472, 0.81460674, 0.80898876, 0.86440678]
+
+Mean CV Accuracy: 82.79%
+```
+
+### KNN — 5-Fold Cross-Validation
+
+```text
+Fold scores:
+[0.78089888, 0.76404494, 0.82584270, 0.81460674, 0.80790960]
+
+Mean CV Accuracy: 79.87%
+```
+
+The SVM model therefore remained the stronger performer across the cross-validation results, with a mean accuracy of approximately **82.79%**.
+
+---
+
 ---
 
 # 🤖 Machine Learning Models
@@ -452,6 +478,8 @@ Through this project, I practiced:
 * F1-Score
 * Classification Reports
 * Comparing Multiple Classification Algorithms
+* Cross-Validation
+* Evaluating model performance across multiple folds
 
 ---
 
@@ -459,7 +487,9 @@ Through this project, I practiced:
 
 This project demonstrates how different Machine Learning classification algorithms perform on the same dataset.
 
-Logistic Regression achieved **80.34% accuracy**, while the Support Vector Classifier achieved the highest recorded accuracy of **82.58%** among the models tested.
+Logistic Regression achieved **80.34% accuracy**, while the Support Vector Classifier achieved the highest recorded single test-split accuracy of **82.58%** among the models tested.
+
+The SVM also achieved a **mean 5-fold cross-validation accuracy of 82.79%**, compared with **79.87%** for KNN, providing additional evidence that SVM was the strongest model in this notebook.
 
 The project provides practical experience with the complete Machine Learning classification workflow:
 
@@ -509,4 +539,3 @@ The project can be further improved by:
 # 👨‍💻 Author
 
 **Aditya Kumar Singh**
-
