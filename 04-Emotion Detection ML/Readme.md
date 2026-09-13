@@ -1,24 +1,18 @@
 # Emotion Detection ML
 
-An NLP-based machine learning mini project that classifies text into different emotion categories using text preprocessing and traditional machine learning techniques.
+An NLP-based machine learning mini project that classifies text into different emotion categories using text preprocessing, feature extraction, and traditional machine learning algorithms.
 
 ## 📌 Project Overview
 
-**Emotion Detection ML** is a Natural Language Processing (NLP) project that analyzes textual data and predicts the emotion associated with the given text.
+**Emotion Detection ML** is a Natural Language Processing (NLP) mini project designed to classify text according to the emotion expressed in it.
 
-The project demonstrates a complete basic NLP classification workflow, including:
+The project follows a complete machine learning workflow, including data exploration, text preprocessing, label encoding, feature extraction, model training, and performance comparison.
 
-* Text preprocessing
-* Stopword removal
-* Label encoding
-* Bag-of-Words feature extraction
-* TF-IDF feature extraction
-* Machine learning model training
-* Model comparison using accuracy
+The project compares **Bag-of-Words with Multinomial Naive Bayes**, **TF-IDF with Multinomial Naive Bayes**, and **TF-IDF with Logistic Regression**.
 
 ## 🎯 Objective
 
-The main objective of this project is to build and compare different machine learning approaches for **text emotion classification** and identify the model that performs best on the given dataset.
+The main objective of this project is to build and compare different machine learning approaches for text-based emotion classification and identify the best-performing model based on test accuracy.
 
 ## 🛠️ Technologies Used
 
@@ -36,16 +30,35 @@ The main objective of this project is to build and compare different machine lea
 ```text
 Emotion-Detection-ML/
 │
-├── Emotion-Detection-ML.ipynb
-├── README.md
-└── dataset/
-    └── test.txt
+├── Emotion_Detection_ML.ipynb
+├── train.txt
+└── README.md
 ```
 
-## 🔄 Workflow
+## 📊 Dataset
+
+The dataset contains **16,000 text samples** belonging to **6 different emotion classes**.
+
+### Dataset Details
+
+* Total samples: **16,000**
+* Unique text samples: **15,969**
+* Emotion classes: **6**
+* Missing values: **None**
+
+The dataset is divided into:
+
+* **80% Training Data**
+* **20% Testing Data**
+
+using `random_state=42`.
+
+## 🔄 Project Workflow
 
 ```text
 Dataset
+   ↓
+Data Exploration
    ↓
 Data Cleaning
    ↓
@@ -58,7 +71,7 @@ Label Encoding
 Train-Test Split
    ↓
 Feature Extraction
-   ├── Bag-of-Words
+   ├── CountVectorizer
    └── TF-IDF
    ↓
 Model Training
@@ -72,7 +85,7 @@ Accuracy Comparison
 
 ## 🧹 Text Preprocessing
 
-The text data is cleaned and prepared before training the models.
+The text data is cleaned before being used for machine learning.
 
 The preprocessing steps include:
 
@@ -87,66 +100,68 @@ The preprocessing steps include:
 **Before:**
 
 ```text
-im updating my blog because i feel shitty
+i can go from feeling so hopeless to so damned hopeful just from being around someone who cares and is awake
 ```
 
 **After:**
 
 ```text
-im updating blog feel shitty
+go feeling hopeless damned hopeful around someone cares awake
 ```
-
-## 📊 Dataset
-
-The dataset contains **2,000 text samples** belonging to **6 different emotion classes**.
-
-* Total samples: **2,000**
-* Unique text samples: **2,000**
-* Number of emotion classes: **6**
-* Missing values: **None**
-
-The dataset is split into:
-
-* **80% Training Data**
-* **20% Testing Data**
-
-with `random_state=42`.
 
 ## 🤖 Machine Learning Models
 
 ### 1. CountVectorizer + Multinomial Naive Bayes
 
-Bag-of-Words representation is created using `CountVectorizer`, followed by a Multinomial Naive Bayes classifier.
+The text is converted into a Bag-of-Words representation using `CountVectorizer` and classified using `MultinomialNB`.
 
-**Accuracy: 61.50%**
+**Test Accuracy: 76.8125%**
 
 ### 2. TF-IDF + Multinomial Naive Bayes
 
-TF-IDF is used for feature extraction and Multinomial Naive Bayes is used for classification.
+TF-IDF is used to transform the text into numerical features, followed by Multinomial Naive Bayes classification.
 
-**Accuracy: 57.50%**
+**Test Accuracy: 66.09375%**
 
 ### 3. TF-IDF + Logistic Regression
 
-TF-IDF features are combined with Logistic Regression for multiclass emotion classification.
+TF-IDF features are used with Logistic Regression for multiclass emotion classification.
 
-**Accuracy: 63.75%**
+**Test Accuracy: 86.28125%**
 
-## 📈 Results
+## 📈 Model Comparison
 
-| Model                   | Feature Extraction |   Accuracy |
-| ----------------------- | ------------------ | ---------: |
-| Multinomial Naive Bayes | CountVectorizer    |     61.50% |
-| Multinomial Naive Bayes | TF-IDF             |     57.50% |
-| Logistic Regression     | TF-IDF             | **63.75%** |
+| Model                   | Feature Extraction | Test Accuracy |
+| ----------------------- | ------------------ | ------------: |
+| Multinomial Naive Bayes | CountVectorizer    |      76.8125% |
+| Multinomial Naive Bayes | TF-IDF             |     66.09375% |
+| Logistic Regression     | TF-IDF             | **86.28125%** |
 
-### 🏆 Best Model
+## 🏆 Best Model
 
-The best-performing approach in this project is:
+The best-performing model is:
 
 **TF-IDF + Logistic Regression**
 
-with a test accuracy of **63.75%**.
+with a test accuracy of **86.28125%**.
+
+This model achieved the highest accuracy among the three approaches evaluated in the project.
+
+## 📚 Key Learning Outcomes
+
+This project provides practical experience with:
+
+* Natural Language Processing
+* Text preprocessing
+* Stopword removal
+* Label encoding
+* Bag-of-Words representation
+* TF-IDF feature extraction
+* Multinomial Naive Bayes
+* Logistic Regression
+* Train-test splitting
+* Model evaluation
+* Comparing machine learning approaches
 
 ## 🚀 How to Run
 
@@ -162,7 +177,7 @@ git clone https://github.com/connectwithaadi/Emotion-Detection-ML.git
 cd Emotion-Detection-ML
 ```
 
-### 3. Install dependencies
+### 3. Install the required libraries
 
 ```bash
 pip install numpy pandas nltk scikit-learn matplotlib seaborn
@@ -173,40 +188,28 @@ pip install numpy pandas nltk scikit-learn matplotlib seaborn
 Open:
 
 ```text
-Emotion-Detection-ML.ipynb
+Emotion_Detection_ML.ipynb
 ```
 
-You can run it using **Jupyter Notebook** or **Google Colab**.
+The notebook can be run using **Jupyter Notebook** or **Google Colab**.
 
-> **Note:** If running the notebook in a different environment, update the dataset path according to your local dataset location.
-
-## 📌 Key Learning Outcomes
-
-Through this project, I explored:
-
-* Fundamentals of NLP
-* Text cleaning and preprocessing
-* Stopword removal
-* Label encoding
-* Bag-of-Words
-* TF-IDF
-* Multinomial Naive Bayes
-* Logistic Regression
-* Train-test splitting
-* Comparing machine learning models using accuracy
+> **Note:** The notebook currently uses the dataset path `/content/train.txt`. If you run it locally, update the dataset path according to your local file location.
 
 ## 🔮 Future Improvements
 
-The project can be extended in the future by:
+The project can be further improved by:
 
-* Adding more training data
-* Performing hyperparameter tuning
-* Using additional NLP techniques
-* Evaluating models using precision, recall, and F1-score
-* Experimenting with advanced NLP models
+* Hyperparameter tuning
+* Using additional evaluation metrics such as Precision, Recall, and F1-score
+* Experimenting with different NLP preprocessing techniques
+* Testing additional machine learning algorithms
+* Using larger or more diverse datasets
+* Exploring advanced NLP models
 
 ## 👨‍💻 Author
 
 **Aditya Kumar Singh**
 
+
+---
 
